@@ -1,7 +1,7 @@
 from walter import Walter
 
 
-class james:
+class James:
     def __init__(self):
         pass
 
