@@ -33,11 +33,9 @@ def read_titanic_dead():
     return {"dead": james.get_dead_count()}
 
 @app.get("/titanic/tree")
-def read_titanic_tree():
+def read_has_decision_tree_model_tree():
     james = James()
-    
-    return {"tree": james.get_tree()}
-
+    return {"tree": james.has_decision_tree_model()}
 
 if __name__ == "__main__":
     import uvicorn

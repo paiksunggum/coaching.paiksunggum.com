@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from doro.app.dorow import Dorow
 
 
-app = FastAPI(title="한국도로공사_교통사고통계_20241231")
+app = FastAPI(title="한국도로공사_교통사고통계")
 
 
 class Doroj:
@@ -12,5 +12,5 @@ class Doroj:
 
 
     def get_data(self):
-        d = Dorow()
-        return d.get_data()
+        dw = Dorow()
+        return dw.get_data()

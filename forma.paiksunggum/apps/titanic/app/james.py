@@ -1,9 +1,10 @@
 from fastapi import FastAPI
 
+from titanic.app.rose import DECISION_TREE_MODEL_PATH
 from titanic.app.walter import Walter
 
 
-app = FastAPI(title="Titanic (James)")
+app = FastAPI(title="titanic (james)")
 
 
 class James:
@@ -26,3 +27,7 @@ class James:
     def get_dead_count(self):
         w = Walter()
         return w.get_dead_count()
+
+    def has_decision_tree_model(self) -> bool:
+        """Rose.save_model() 기본 경로에 결정 트리 joblib가 있는지 판단한다."""
+        return DECISION_TREE_MODEL_PATH.is_file()
