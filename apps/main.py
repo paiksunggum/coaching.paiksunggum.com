@@ -1,13 +1,10 @@
 from typing import List
 
 from fastapi import FastAPI
-from fastapi.encoders import jsonable_encoder
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 
 from titanic.app.james_controller import JamesController
-from doro.app.doro_director import DoroDirector
 
 
 app = FastAPI(title="TJ Watson Main Page")
@@ -61,16 +58,8 @@ def read_titanic_tree():
 @app.get("/titanic/model")
 def read_titanic_model():
     controller = JamesController()
-    model_name = controller.get_model_name_and_accuracy()
-    return JSONResponse(content=jsonable_encoder(model_name))
+    return controller.get_model_name_and_accuracy()
 
-
-@app.get("/doro/data")
-def read_doro_data():
-    doro_director = DoroDirector()
-    df = doro_director.get_data()
-
-    return df.to_dict(orient="records")
 
 
 if __name__ == "__main__":
