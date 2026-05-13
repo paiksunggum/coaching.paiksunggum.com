@@ -1,4 +1,4 @@
-from titanic.app.jack_service import JackService
+from .jack_service import JackService
 
 
 class JamesController:

@@ -1,10 +1,11 @@
-from typing import List
-
-from fastapi import FastAPI
+from fastapi import Depends, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
+from sqlalchemy.ext.asyncio import AsyncSession
 
-from titanic.app.james_controller import JamesController
+from .database import get_db
+from .db_check_adapter import DbCheckAdapter
+from .titanic.app.james_controller import JamesController
 
 
 app = FastAPI(title="TJ Watson Main Page")
@@ -21,6 +22,11 @@ app.add_middleware(
 @app.get("/")
 def read_root():
     return {"message": "FAST API 메인 페이지 ", "docs": "/docs"}
+
+
+@app.get("/db-check")
+async def check_db(db: AsyncSession = Depends(get_db)):
+    return await DbCheckAdapter.neon_now(db)
 
 
 @app.get("/titanic/data")
@@ -55,4 +61,4 @@ def read_titanic_model():
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run("apps.main:app", host="127.0.0.1", port=8000, reload=True)

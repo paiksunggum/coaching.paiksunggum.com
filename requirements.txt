@@ -3,3 +3,6 @@ uvicorn
 pandas
 scikit-learn
 joblib
+sqlalchemy[asyncio]
+psycopg[binary]
+python-dotenv
