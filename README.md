@@ -1,0 +1,44 @@
+# com.ragwatson
+
+실험·학습용 워크스페이스다. 예제 앱(`titanic/` 등), 문서(`docs/`), 그리고 **Cursor에서 LLM을 묶는 하네스**(규칙·지침)가 함께 있다.
+
+## 하네스 엔지니어링 (Karpathy 기준)
+
+모델만 두면 흔히 **가정을 숨기고**, **요청보다 큰 코드**를 쓰고, **주변 파일까지 손대며**, **“끝났다”의 기준이 없는** 식으로 동작한다. [Andrej Karpathy의 관찰](https://x.com/karpathy/status/2015883857489522876)을 바탕으로 한 대응은 네 가지 축으로 정리한다.
+
+| 원칙 | 한 줄 |
+| --- | --- |
+| **1. 구현 전 사고** | 가정·모호함·트레이드오프를 말로 드러내고, 불명확하면 구현 전에 멈춘다. |
+| **2. 단순성 우선** | 문제를 푸는 최소 코드만; 요청 밖 기능·추상화·설정을 넣지 않는다. |
+| **3. 정밀한 수정** | 필요한 줄만; 내 변경이 만든 잡음만 정리한다. |
+| **4. 목표 중심 실행** | 테스트·재현·빌드처럼 **검증 가능한** 완료 정의를 먼저 둔다. |
+
+> **트레이드오프:** 신중함을 속도보다 우선한다. 사소한 작업은 판단으로 완화한다.
+
+이 저장소에서는 위 원칙을 파일로 고정해 두었다.
+
+| 파일 | 역할 |
+| --- | --- |
+| [`.cursorrules`](.cursorrules) | Cursor에 항상 줄 **짧은 운영 규칙** |
+| [`CLAUDE.md`](CLAUDE.md) | 같은 원칙의 **전문·예시·출처** |
+| [`CURSOR.md`](CURSOR.md) | Cursor 안에서 **하네스를 어떻게 쓸지**(맥락·도구·검증 루프) |
+
+규칙과 본문이 어긋나면 `.cursorrules`는 짧게 유지하고, 설명은 `CLAUDE.md`·`CURSOR.md`에 맡기는 편이 좋다.
+
+## 디렉터리 개요
+
+- **`titanic/`** — 예제 애플리케이션(FastAPI·데이터 등)
+- **`docs/`** — 노트·개념 정리(Obsidian 등)
+
+(세부 실행 방법은 각 하위 프로젝트의 `requirements.txt`, `package.json` 등을 본다.)
+
+## 에이전트와 함께 일할 때
+
+1. 작업에 `@파일`로 **범위**를 줄인다.
+2. 가능하면 **완료 정의**를 한 문장 붙인다.
+3. 네 원칙은 `CLAUDE.md`를 기준으로 해석한다.
+
+## 출처
+
+- Andrej Karpathy, [X 게시물](https://x.com/karpathy/status/2015883857489522876)
+- 원칙 정리 예: [karpathy-guidelines SKILL](https://github.com/forrestchang/andrej-karpathy-skills/blob/main/skills/karpathy-guidelines/SKILL.md)

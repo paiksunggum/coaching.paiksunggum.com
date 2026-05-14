@@ -1,0 +1,89 @@
+# --- 환경 변수·비밀 (GitHub에 올리면 안 되는 정보) ---
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+*.secret
+*.secrets
+secrets.yaml
+secrets.yml
+secrets.json
+credentials.json
+*credentials*.json
+service-account*.json
+*-firebase-adminsdk*.json
+.aws/credentials
+.azure/
+gcloud-service-key*.json
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+*.ppk
+.htpasswd
+
+# --- Cursor / 로컬 도구 (키·경로가 들어갈 수 있음) ---
+.cursor/mcp.json
+.cursor/mcp*.json
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+.venv/
+env/
+ENV/
+.eggs/
+*.egg-info/
+*.egg
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+pip-log.txt
+*.cover
+.hypothesis/
+
+# --- Node (프론트·도구가 생기면) ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# --- 데이터베이스·로컬 상태 ---
+*.sqlite
+*.sqlite3
+*.db
+
+# --- 로그 ---
+*.log
+logs/
+
+# --- OS·에디터 잡파일 ---
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+.idea/
+
+# --- Terraform / 인프라 상태 (민감할 수 있음) ---
+.terraform/
+*.tfstate
+*.tfstate.*
